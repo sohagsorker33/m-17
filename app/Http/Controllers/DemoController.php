@@ -7,21 +7,29 @@ use Illuminate\Support\Facades\DB;
 
 class DemoController extends Controller
 {
-/*************  ✨ Windsurf Command ⭐  *************/
-/*******  100a2ce2-8f56-4614-8ddc-e99f2e5defa3  *******/
-
-
- // table select kora niya aser jonno ------------
+ 
+ // full table select kora niya aser jonno ------------
     public function tableSelect(Request $request){
        
        $products=DB::table('products')->get();
        return $products;
 
     } 
+//  specific akta row select kora niya aser jonno -------------
+
+
+ public function tableSpecificSelect(Request $request){
+    $brands=DB::table('brands')->find(1);
+    return $brands;
+ }
+ // specific akta row a akta data select kora niya aser jonno ------------
+
+ public function tableSpecificDataSelect(Request $request){
+    $brands=DB::table('brands')->pluck('brandImg','brandName');
+    return $brands;
+ }
 
 
 
 
-
-    
 }

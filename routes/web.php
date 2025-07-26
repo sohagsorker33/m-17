@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
  Route::get('demo',[DemoController::class,'tableSelect']);
+ Route::get('demo2',[DemoController::class,'tableSpecificSelect']);
+ Route::get('demo3',[DemoController::class,'tableSpecificDataSelect']);
