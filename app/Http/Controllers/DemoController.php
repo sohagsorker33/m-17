@@ -29,7 +29,24 @@ class DemoController extends Controller
     return $brands;
  }
 
+// aggregates------------------------ 
 
+public function Aggregates(Request $request){
+     
+   $count=DB::table('products')->count();
+
+   $max=DB::table('products')->max('price');
+
+   $min=DB::table('products')->min('price');
+
+   $sum=DB::table('products')->sum('price');
+
+   $avg=DB::table('products')->avg('price');
+
+   return $avg;
+
+
+}
 
 
 }
