@@ -11,28 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_reviews', function (Blueprint $table) {
+        Schema::create('product_review', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
-
-            // F-key--------------------
-
+            $table->longText('description');
+            // K-key
             $table->string('email');
             $table->unsignedBigInteger('product_id');
-
-            //relationship------------
-
-            $table->foreign('email')->references('email')->on('profiles')
+            $table->foreign('email')->references('email')->on('newprofiles')
             ->restrictOnDelete()
             ->cascadeOnUpdate();
-
             $table->foreign('product_id')->references('id')->on('products')
             ->restrictOnDelete()
             ->cascadeOnUpdate();
-
-             $table->timestamp('created_at')->useCurrent();
-             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-
+            
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
@@ -41,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_reviews');
+        Schema::dropIfExists('product_review');
     }
 };
