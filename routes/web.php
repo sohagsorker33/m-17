@@ -22,3 +22,4 @@ Route::get('/', function () {
  Route::get('demo2',[DemoController::class,'tableSpecificSelect']);
  Route::get('demo3',[DemoController::class,'tableSpecificDataSelect']);
  Route::get('demo4',[DemoController::class,'Aggregates']);
+ Route::get('demo5',[DemoController::class,'select']);

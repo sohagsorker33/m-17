@@ -48,5 +48,20 @@ public function Aggregates(Request $request){
 
 }
 
+// select cluses---------------------
+public function select(Request $request){
+
+     $select = DB::table('products')
+            ->select('title', 'price', 'short_des')
+            ->get();
+
+      $distinct = DB::table('products')->select('title')
+            ->distinct()
+            ->get();
+
+      return $distinct;
+}
+
+
 
 }
