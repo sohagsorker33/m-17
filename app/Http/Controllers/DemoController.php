@@ -168,5 +168,18 @@ public function advancedJoinCluse(Request $request){
 
 }
 
+// Union------------
+
+public function union(Request $request){
+
+   $query1=DB::table('products')->where('products.price', '>', 2000);
+
+   $query2=DB::table('products')->where('products.discount', '=', 1);
+
+   $product=$query1->union($query2)->get();
+
+   return $product;
+
+}
 
 }
