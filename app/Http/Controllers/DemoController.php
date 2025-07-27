@@ -12,6 +12,7 @@ class DemoController extends Controller
     public function tableSelect(Request $request){
        
        $products=DB::table('products')->get();
+
        return $products;
 
     } 
@@ -26,6 +27,7 @@ class DemoController extends Controller
 
  public function tableSpecificDataSelect(Request $request){
     $brands=DB::table('brands')->pluck('brandImg','brandName');
+
     return $brands;
  }
 
@@ -52,11 +54,15 @@ public function Aggregates(Request $request){
 public function select(Request $request){
 
      $select = DB::table('products')
+
             ->select('title', 'price', 'short_des')
+
             ->get();
 
       $distinct = DB::table('products')->select('title')
+
             ->distinct()
+
             ->get();
 
       return $distinct;
@@ -76,11 +82,44 @@ public function innerJoin(Request $request){
  */
 
     ->join('categories', 'products.category_id', '=', 'categories.id')
+
     ->join('brands', 'products.brand_id', '=', 'brands.id')
+
     ->where('products.id', 2)
+
     ->get();
 
     return $products;    
+
+}
+
+// left and right Join ----------------------------
+
+public function leftRightJoin(Request $request){
+ 
+   //  left join-------------
+
+  $productLeft=DB::table('products')
+
+  ->leftJoin('categories', 'products.category_id', '=', 'categories.id')
+
+  ->leftJoin('brands', 'products.brand_id', '=', 'brands.id')
+
+  ->get();
+ 
+   // right join------------
+
+     $productRight=DB::table('products')
+
+    ->rightJoin('categories', 'products.category_id', '=', 'categories.id')
+
+    ->rightJoin('brands', 'products.brand_id', '=', 'brands.id')
+    
+    ->get();
+
+ 
+
+  return $productRight;
 
 }
 

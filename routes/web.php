@@ -29,3 +29,5 @@ Route::get('/', function () {
  Route::get('demo5',[DemoController::class,'select']);
 
  Route::get('demo6',[DemoController::class,'innerJoin']);
+
+ Route::get('demo7',[DemoController::class,'leftRightJoin']);
