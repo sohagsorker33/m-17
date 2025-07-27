@@ -198,7 +198,18 @@ public function ascDesc(Request $request){
 
 }
 
+// GroupBy------
 
+public function groupBy(Request $request){
+
+   $groupBy=DB::table('products')->groupBy('title')->get();
+
+   $groupBy2=DB::table('products')->groupBy('price')->having('price', '>=', 100)->get();
+
+   return $groupBy2;
+
+
+}
 
 
 

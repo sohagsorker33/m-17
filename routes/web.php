@@ -39,3 +39,5 @@ Route::get('/', function () {
  Route::get('/demo10',[DemoController::class,'union']);
 
  Route::get('/demo11',[DemoController::class,'ascDesc']);
+
+ Route::get('/demo12',[DemoController::class,'groupBy']);
