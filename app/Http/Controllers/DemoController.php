@@ -62,6 +62,28 @@ public function select(Request $request){
       return $distinct;
 }
 
+// Inner Join ----------------------------
+
+public function innerJoin(Request $request){
+ 
+  $products = DB::table('products')
+
+  /*  ->join('categories', 'products.category_id', '=', 'categories.id')
+
+    ->join('brands', 'products.brand_id', '=', 'brands.id')
+
+    ->get();
+ */
+
+    ->join('categories', 'products.category_id', '=', 'categories.id')
+    ->join('brands', 'products.brand_id', '=', 'brands.id')
+    ->where('products.id', 2)
+    ->get();
+
+    return $products;    
+
+}
+
 
 
 }
