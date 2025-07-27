@@ -124,5 +124,24 @@ public function leftRightJoin(Request $request){
 }
 
 
+// cross Join ----------------------------
+
+public function crossJoin(Request $request){
+
+   $product=DB::table('products')
+   
+   ->crossJoin('brands')
+
+   ->crossJoin('categories')
+   
+   ->get();
+   
+   return $product;
+   
+}
+
+
+
+
 
 }

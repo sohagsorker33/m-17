@@ -31,3 +31,5 @@ Route::get('/', function () {
  Route::get('demo6',[DemoController::class,'innerJoin']);
 
  Route::get('demo7',[DemoController::class,'leftRightJoin']);
+
+ Route::get('demo8',[DemoController::class,'crossJoin']);
