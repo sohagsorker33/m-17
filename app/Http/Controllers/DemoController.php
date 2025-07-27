@@ -182,4 +182,25 @@ public function union(Request $request){
 
 }
 
+// ascending and descendion order-----------------
+
+public function ascDesc(Request $request){
+
+  $asc=DB::table('products')->orderBy('price','asc')->get();
+
+  $desc=DB::table('products')->orderBy('title', 'desc')->get();
+
+  $random=DB::table('products')->inRandomOrder()->get();
+
+  $skip=DB::table('products')->skip(1)->take(1)->get();
+
+  return $skip;
+
+}
+
+
+
+
+
+
 }
