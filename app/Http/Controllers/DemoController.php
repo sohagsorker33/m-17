@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Database\Query\JoinClause;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -141,7 +142,31 @@ public function crossJoin(Request $request){
 }
 
 
+// advanced joincluse --------
 
+public function advancedJoinCluse(Request $request){
+
+   $products=DB::table('products')
+
+   ->join('categories', function(JoinClause $join){
+    
+      $join->on('products.category_id', '=', 'categories.id') 
+
+      ->where('products.price', '>', 500);
+
+   })
+   
+   ->join('brands', function(JoinClause $join){
+
+      $join->on('products.brand_id','=', 'brands.id')
+
+      ->where('brands.brandName', '=', 't-shrat');
+
+   })->get();
+ 
+   return $products;
+
+}
 
 
 }
