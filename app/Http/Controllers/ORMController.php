@@ -42,6 +42,13 @@ class ORMController extends Controller
          );
 
     }
+
+     public function Delete(Request $request){
+         
+       return Brand::where('id', $request->id)->delete();
+
+     }
+
         
     }
 
