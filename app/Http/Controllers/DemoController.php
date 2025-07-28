@@ -211,7 +211,15 @@ public function groupBy(Request $request){
 
 }
 
+// data insert------------
 
+public function Insert(Request $request){
+
+   $brands=DB::table('brands')->insert($request->input());
+
+   return $brands;
+
+}
 
 
 }
