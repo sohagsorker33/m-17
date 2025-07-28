@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
+use App\Http\Controllers\ORMController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Query builder Api Route------------
+
  Route::post('/demo13',[DemoController::class,'Insert']);
 
  Route::post('/demo14/{id}',[DemoController::class,'Update']);
 
  Route::post('/demo15/{id}',[DemoController::class,'Delete']);
+
+ //  ORM Api Route------------
+
+ Route::post('/insert',[ORMController::class,"ORMInsert"]);
+
+
+
