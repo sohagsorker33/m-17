@@ -16,4 +16,16 @@ class ORMController extends Controller
         return $brand;
 
      }
+
+     // data update---------------
+
+     public function ORMUpdate(Request $request){
+
+       // Brand::where('id', $request->id)->update($request->input());
+
+        $brand=Brand::where('id', $request->id)->update($request->input());
+
+        return $brand;
+
+     }
 }
