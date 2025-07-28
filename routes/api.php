@@ -34,3 +34,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/update/{id}',[ORMController::class,"ORMUpdate"]);
 
+Route::post('/updateOrCreate/{brandName}',[ORMController::class,"ORMUpdateOrCreate"]);

@@ -21,11 +21,31 @@ class ORMController extends Controller
 
      public function ORMUpdate(Request $request){
 
-       // Brand::where('id', $request->id)->update($request->input());
+       //return Brand::where('id', $request->id)->update($request->input());
 
         $brand=Brand::where('id', $request->id)->update($request->input());
 
         return $brand;
 
      }
-}
+
+     // UpdateOrCreate ----------------
+
+    public function ORMUpdateOrCreate(Request $request){
+
+     return  Brand::updateOrCreate(
+          
+          ["brandName"=>$request->brandName],
+
+          $request->input()
+
+         );
+
+    }
+        
+    }
+
+
+
+
+
