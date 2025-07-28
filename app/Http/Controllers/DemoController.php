@@ -21,12 +21,16 @@ class DemoController extends Controller
 
 
  public function tableSpecificSelect(Request $request){
+
     $brands=DB::table('brands')->find(1);
+
     return $brands;
+
  }
  // specific akta row a akta data select kora niya aser jonno ------------
 
  public function tableSpecificDataSelect(Request $request){
+   
     $brands=DB::table('brands')->pluck('brandImg','brandName');
 
     return $brands;

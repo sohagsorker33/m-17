@@ -36,4 +36,12 @@ Route::post('/update/{id}',[ORMController::class,"ORMUpdate"]);
 
 Route::post('/updateOrCreate/{brandName}',[ORMController::class,"ORMUpdateOrCreate"]);
 
-Route::post('/delete/{id}',[ORMController::class,"Delete"]);
+Route::get('/delete/{id}',[ORMController::class,"Delete"]);
+
+Route::post('/allSelect',[ORMController::class,'AllSelect']);
+
+Route::post('/find/{id}',[ORMController::class,'Find']);
+
+Route::get('/randomSelect',[ORMController::class,'RandomSelect']);
+
+Route::post('/pluck',[ORMController::class,'Pluck']);

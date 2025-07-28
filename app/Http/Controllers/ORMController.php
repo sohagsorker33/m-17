@@ -49,6 +49,45 @@ class ORMController extends Controller
 
      }
 
+     // akta table all select
+
+     public function AllSelect(Request $request){
+       
+       // return Brand::all();
+
+        return Brand::get();
+
+     }
+
+     public function Find(Request $request){
+       
+        //return Brand::first();
+
+       // return Brand::find(2);
+
+       return Brand::where('id', $request->id)->get();
+         
+     }
+
+     public function RandomSelect(Request $request){
+
+        return Brand::inRandomOrder()->get();
+         
+     }
+
+     public function Pluck(Request $request){
+
+       return Brand::pluck(
+        
+            'brandName',
+            'brandImg'
+        
+       );
+
+     }
+
+    
+
         
     }
 
