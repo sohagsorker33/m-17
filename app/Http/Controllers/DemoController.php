@@ -221,5 +221,14 @@ public function Insert(Request $request){
 
 }
 
+// data update------------
+public function Update(Request $request)
+{
+   
+    $update = DB::table('brands')->where('id',$request->id)->update($request->input());
+
+    return $update;
+}
+
 
 }
