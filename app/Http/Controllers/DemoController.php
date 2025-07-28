@@ -230,5 +230,13 @@ public function Update(Request $request)
     return $update;
 }
 
+ public function Delete(Request $request){
+
+  $delete=DB::table('brands')->where('id', $request->id)->delete();
+
+  return $delete;
+
+ }
+
 
 }
